@@ -20,6 +20,7 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  if (main.querySelector('.hero')) return;
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
@@ -133,3 +134,21 @@ async function loadPage() {
 }
 
 loadPage();
+
+const foo = ({ detail }) => {
+  const sk = detail.data;
+  console.log(sk);
+  // your custom code from button.action goes here
+};
+
+const sk = document.querySelector('helix-sidekick');
+if (sk) {
+  // sidekick already loaded
+  sk.addEventListener('custom:foo', foo);
+} else {
+  // wait for sidekick to be loaded
+  document.addEventListener('sidekick-ready', () => {
+    document.querySelector('helix-sidekick')
+      .addEventListener('custom:foo', foo);
+  }, { once: true });
+}
