@@ -137,9 +137,7 @@ loadPage();
 
 const open = ({ detail }) => {
   const sk = detail.data;
-  console.log(sk);
   window.open(sk?.config?.mountpoint, '_blank');
-  // your custom code from button.action goes here
 };
 
 const sk = document.querySelector('helix-sidekick');
