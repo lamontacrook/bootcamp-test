@@ -135,7 +135,7 @@ async function loadPage() {
 
 loadPage();
 
-const open = ({ detail }) => {
+const openDrive = ({ detail }) => {
   const sk = detail.data;
   window.open(sk?.config?.mountpoint, '_blank');
 };
@@ -143,11 +143,11 @@ const open = ({ detail }) => {
 const sk = document.querySelector('helix-sidekick');
 if (sk) {
   // sidekick already loaded
-  sk.addEventListener('custom:open', open);
+  sk.addEventListener('custom:open', openDrive);
 } else {
   // wait for sidekick to be loaded
   document.addEventListener('sidekick-ready', () => {
     document.querySelector('helix-sidekick')
-      .addEventListener('custom:open', open);
+      .addEventListener('custom:open', openDrive);
   }, { once: true });
 }
