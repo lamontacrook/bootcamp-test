@@ -2,9 +2,9 @@
   "project": "Bootcamp",
   "plugins": [
     {
-      "id": "foo",
-      "title": "Foo",
-      "event": "foo"
+      "id": "open",
+      "title": "Open Google Drive",
+      "event": "openDrive"
     }
   ]
 }
