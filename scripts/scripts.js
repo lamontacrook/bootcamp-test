@@ -138,6 +138,7 @@ loadPage();
 const foo = ({ detail }) => {
   const sk = detail.data;
   console.log(sk);
+  window.open(sk?.config?.mountpoint, '_blank');
   // your custom code from button.action goes here
 };
 
